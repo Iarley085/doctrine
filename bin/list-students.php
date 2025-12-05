@@ -7,4 +7,11 @@ $studentRepository = $entityManager->getRepository(Student::class);
 $studentList = $studentRepository->findAll();
 foreach ($studentList as $student){
     echo "ID: $student->id\nNome: $student->name\n\n";
-}
+    echo "Telephones:";
+    foreach ($student->phones() as $phone){
+        echo $phone->number . PHP_EOL;
+    }
+
+
+   }
+
