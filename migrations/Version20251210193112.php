@@ -7,9 +7,7 @@ namespace Alura\Doctrine\Migrations;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
-/**
- * Auto-generated Migration: Please modify to your needs!
- */
+
 final class Version20251210193112 extends AbstractMigration
 {
     public function getDescription(): string
@@ -19,13 +17,14 @@ final class Version20251210193112 extends AbstractMigration
 
     public function up(Schema $schema): void
     {
-        // this up() migration is auto-generated, please modify it to your needs
-
+        $table = $schema->createTable(name:'teste');
+        $table->addColumn(name:'id', type:'integer', options:['autoincrement' => true]);
+        $table->addColumn(name:'coluna_teste', type:'string', length:255);
+        $table->setPrimaryKey(columns:['id']);
     }
 
     public function down(Schema $schema): void
     {
-        // this down() migration is auto-generated, please modify it to your needs
-
+        $schema->dropTable(name:'teste');
     }
 }
